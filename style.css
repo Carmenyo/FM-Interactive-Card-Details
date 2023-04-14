@@ -22,7 +22,7 @@ body{
 }
 
 .hidden{
-    display: none;
+    display: none !important;
 }
 .error{
     border: 2px solid var(--Red-input-errors);
@@ -111,7 +111,7 @@ body{
     width: 100%;
 }
 .section__right--form{
-   display: grid ; 
+   display: grid; 
    width: 25rem;
    height: 25rem;
    grid-template-columns: repeat(2, 1fr);
@@ -180,4 +180,31 @@ input:focus{
    background-color: var(--Very-dark-violet);
    color: var(--White);
    border-radius: 0.5rem;
+   cursor: pointer;
+}
+
+.thanks{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 2rem;
+}
+.thanks__title{
+    text-transform: uppercase;
+    letter-spacing: 3px; 
+}
+.thanks__paragraph{
+    font-size: 18px;
+    color: var(--Dark-grayish-violet);
+}
+.thanks__button{
+    width: 100%;
+    color: var(--White);
+    background-color: var(--Very-dark-violet);
+    padding: 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    
 }
