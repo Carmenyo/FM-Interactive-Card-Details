@@ -1,131 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
 
-    <title>Frontend Mentor | Interactive card details form</title>
-  </head>
-
-  <body>
+<body>
   <!-- main -->
-    <main>
-      <div class="container">
-        <!-- sección izquierda -->
-        <section class="section__left">
-          <div class="cards">
-            <div class="card__front">
-              <img src="./images/bg-card-front.png" alt="front card" />
-              <div class="card__container">
-                <img src="./images/card-logo.svg" alt="logo" />
-                <h1 id="number">0000 0000 0000 0000</h1>
-                <div class="card__info">
-                  <span id="name"> Jane Appleseed </span>
-                  <span id="date">
-                    <span id="month">00</span>
-                    /
-                    <span id="year">00</span>
-                  </span>
-                </div>
+  <main>
+    <div class="container">
+      <!-- sección izquierda -->
+      <section class="section__left">
+        <!-- contenedor de tarjetas -->
+        <div class="cards">
+          <!-- frontal -->
+          <div class="card__front">
+            <img src="./images/bg-card-front.png" alt="front card" />
+            <div class="card__container">
+              <img src="./images/card-logo.svg" alt="logo" class="card__logo" />
+              <h1 class="card__numberfront" id="number">0000 0000 0000 0000</h1>
+              <div class="card__information">
+                <span id="name"> Jane Appleseed </span>
+                <span id="date">
+                  <span id="month">00</span>
+                  /
+                  <span id="year">00</span>
+                </span>
               </div>
-            </div>
-
-            <div class="card__back">
-              <img src="./images/bg-card-back.png" alt="back card" />
-              <span id="csv">000</span>
             </div>
           </div>
-        </section>
+          <!-- revés -->
+          <div class="card__back">
+            <img src="./images/bg-card-back.png" alt="back card" />
+            <span class="card__backcvc" id="cvc">000</span>
+          </div>
+        </div>
+      </section>
+      <!-- Sección derecha -->
+      <section class="section__right">
+        <!-- Formulario -->
+        <form class="section__right--form">
+          <div class="grid__1">
+            <label for="card__name">Cardholder Name </label>
+            <input type="text" placeholder="e.g. Jane Appleseed" id="card__name" required />
+          </div>
+          <div class="grid__2">
+            <label for="card__number"> Card Number </label>
+            <input type="number"
+              oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
+              minlength="16" maxlength="16" placeholder="e.g. 1234 5678 9123 0000" id="card__number" required />
+          </div>
+          <div class="card__info">
+            <div class="card__date">
+              <label for="card__date"> Exp. Date (MM/YY) </label>
 
-        <!-- Sección derecha -->
-        <section class="section__right">
-
-          <!-- Formulario -->
-          <form>
-            <div class="grid__1">
-              <label for="card__name">Cardholder Name </label>
-              <input
-                type="text"
-                placeholder="e.g. Jane Appleseed"
-                id="card__name"
-                required
-              />
-            </div>
-
-            <div class="grid__2">
-              <label for="card__number"> Card Number </label>
-              <input
-                type="number"
-                oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
-                minlength="16"
-                maxlength="16"
-                placeholder="e.g. 1234 5678 9123 0000"
-                id="card__number"
-                required
-              />
-            </div>
-
-            <div class="card__info">
-              <div class="card__date">
-                <label for="card__date"> Exp. Date (MM/YY) </label>
-
-                <div class="two__inputs">
-                  <input
-                    type="number"
-                    oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
-                    minlength="2"
-                    maxlength="2"
-                    placeholder="MM"
-                    id="card__month"
-                    required
-                  />
-
-                  <div>
-                    <input
-                      type="number"
-                      oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
-                      minlength="2"
-                      maxlength="2"
-                      placeholder="YY"
-                      id="card__year"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="grid__3">
-                <label for=""> CVC </label>
-                <input
-                  type="number"
+              <div class="card__twoinput">
+                <input type="number"
                   oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
-                  minlength="3"
-                  maxlength="3"
-                  placeholder="e.g. 123"
-                  id="card__cvc"
-                  required
-                />
+                  minlength="2" maxlength="2" placeholder="MM" id="card__month" required />
+              
+              <div>
+                <input type="number"
+                  oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
+                  minlength="2" maxlength="2" placeholder="YY" id="card__year" required />
+                 </div> 
               </div>
             </div>
-            <button id="submit__button" type="submit">Confirm</button>
-          </form>
 
-          <!-- Gracias -->
-          <article class="thanks hidden">
-            <img src="./images/icon-complete.svg" alt="complete check" />
-            <h1>Thank you!</h1>
-            <p>We've added your card details</p>
-            <button>Continue</button>
-          </article>
-        </section>
-      </div>
-    </main>
-  </body>
+
+            <div class="grid__3">
+              <label for=""> CVC </label>
+              <input type="number"
+                oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
+                minlength="3" maxlength="3" placeholder="e.g. 123" id="card__cvc" required />
+            </div>
+          </div>
+
+          <button id="submit__button" type="submit">Confirm</button>
+    </div>
+
+    </form>
+    <!-- Gracias -->
+    <article class="thanks hidden">
+      <img src="./images/icon-complete.svg" alt="complete check" />
+      <h1>Thank you!</h1>
+      <p>We've added your card details</p>
+      <button>Continue</button>
+    </article>
+    </section>
+    </div>
+  </main>
+</body>
+
 </html>
