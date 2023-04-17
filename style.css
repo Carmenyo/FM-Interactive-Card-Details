@@ -128,7 +128,7 @@ label{
 }
 input{
     border-radius: .3rem;
-    padding: .8rem ;
+    padding: .8rem .2rem ;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
@@ -169,10 +169,10 @@ input:focus{
     gap: 1rem;
 }
 #card__month{
-    width: 45%;
+    width: 50%;
 }
 #card__year{
-    width: 45%;
+    width: 50%;
 }
 #submit__button{
    grid-column:  2 span; 
@@ -206,5 +206,68 @@ input:focus{
     padding: 1rem;
     border-radius: .5rem;
     cursor: pointer;
-    
+}
+
+/* MEDIA QUERIES */
+
+@media  screen and (max-width:765px) {
+ .container{
+    flex-direction: column;
+ }
+ .card__front, .card__image {
+   width: 280px;
+   margin-left: .8rem;
+ }
+ .card__back{
+    margin-left: -1.2rem;
+ }
+
+.section__left{
+    width: 100%;
+    min-height: 32vh;
+    background-image: url(./images/bg-main-mobile.png);
+}
+.cards{
+    flex-direction: column-reverse;
+    left: 61%;
+    top: 60%;
+    gap:0;
+}
+.card__back{
+    transform: translateY(70px);
+}
+.card__backcvc{
+    position: absolute;
+    top: 40%
+}
+.card__front{
+    z-index: 100;
+}
+.card__logo{
+    width: 55px;
+    top:1rem
+}
+.card__numberfront{
+    font-size: 18px;
+    letter-spacing: .13rem;
+    top: 45%;
+}
+.card__information{
+    font-size: 11px;
+    margin-top: 1.1rem;
+}
+
+.section__right{
+    margin-top: 5rem;
+}
+.section__right--form{
+    padding: 1.4rem;
+}
+
+.card__info{
+    display:flex;
+    grid-column: 2 span;
+    align-items: baseline;
+    gap: 1rem;
+}
 }
