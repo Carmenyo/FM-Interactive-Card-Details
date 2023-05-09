@@ -1,101 +1,92 @@
-"use strict"
+const cardNumber = document.getElementById("number");
+const numberInp = document.getElementById("card_number");
+const nameInp = document.getElementById("card_name");
+const cardName = document.getElementById("name");
+const cardMonth = document.getElementById("month");
+const cardYear = document.getElementById("year");
+const monthInp = document.getElementById("card_month");
+const yearInp = document.getElementById("card_year");
+const cardCvc = document.getElementById("cvc");
+const cvcInp = document.getElementById("card_cvc");
+const submitBtn = document.getElementById("submit__btn");
+const completed = document.querySelector(".thank");
+const form = document.querySelector("form");
 
-// GET DOM ELEMENTS
-const cardNumber = document.getElementById ("number");
-const numberInput = document.getElementById ("card__number");
-
-const cardName = document.getElementById ("name");
-const nameInput = document.getElementById("card__name");
-
-const cardMonth = document.getElementById ("month");
-const monthInput = document.getElementById ("card__month");
-
-const cardYear = document.getElementById ("year");
-const yearInput = document.getElementById ("card__year");
-
-const cardCvc = document.getElementById ("cvc");
-const cvcInput = document.getElementById ("card__cvc");
-
-const SubmitButton = document.getElementById ("submit__button");
-
-const completed = document.querySelector ("thanks");
-
-const form = document.querySelector ("section__right--form");
-
-// FUNCTIONS
 function setCardNumber(e) {
-    cardNumber.innerText = format (e.target.value);
+    cardNumber.innerText = format(e.target.value);
 }
-function setCardName (e) {
-    cardName.innerText = e.target.value;
+function setCardName(e) {
+  cardName.innerText = format(e.target.value);
+}
+function setCardMonth(e) {
+  cardMonth.innerText = format(e.target.value);
+}
+function setCardYear(e) {
+  cardYear.innerText = format(e.target.value);
+}
+function setCardCvc(e) {
+  cardCvc.innerText = format(e.target.value);
 }
 
-function setCardMonth (e) { 
-    cardMonth.innerText = e.target.value;
-}
-function setCardYear (e) {
-    cardYear.innerText = e.target.value;
-}
-function setCardCvc (e) {
-    cardCvc.innerText = e.target.value;
-}
-
-// Function Format
-function format(s) {
-    return s.toString().replace(/\D/g, '');
-} 
-
-//Function Submit Button
-function handleSubmit (e) {
+function handleSubmit(e) {
     e.preventDefault();
-    if (!nameInput.value) {
-        nameInput.classList.add ("error");
-        nameInput.parentElement.classList.add("error_message");
+    if (!nameInp.value) {
+      nameInp.classList.add('error');
+      nameInp.parentElement.classList.add("error_message")
     } else {
-        nameInput.classList.remove ("error");
-        nameInput.parentElement.classList.remove("error_message");
+      nameInp.classList.remove("error");
+      nameInp.parentElement.classList.remove("error_message");
     }
-    if (!numberInput.value) {
-        numberInput.classList.add ("error");
-        numberInput.parentElement.classList.add("error_message");
+    if (!numberInp.value) {
+      numberInp.classList.add('error')
+      numberInp.parentElement.classList.add("error_message");
+    } else if (numberInp.value.length < 16) {
+        numberInp.classList.add("error")
     } else {
-        numberInput.classList.remove ("error");
-        numberInput.parentElement.classList.remove("error_message");
+      numberInp.classList.remove("error");
+      numberInp.parentElement.classList.remove("error_message");
     }
-    if (!monthInput.value) {
-        monthInput.classList.add ("error");
-        monthInput.parentElement.classList.add("error_message");
+    if (!monthInp.value) {
+      monthInp.classList.add("error")
+      monthInp.parentElement.classList.add("error_message");
     } else {
-        monthInput.classList.remove ("error");
-        monthInput.parentElement.classList.remove("error_message");
+      monthInp.classList.remove("error");
+      monthInp.parentElement.classList.remove("error_message");
     }
-    if (!yearInput.value) {
-        yearInput.classList.add ("error");
-        yearInput.parentElement.classList.add("error_message");
+    if (!yearInp.value) {
+      yearInp.classList.add("error")
+      yearInp.parentElement.classList.add("error_message");
     } else {
-        yearInput.classList.remove ("error");
-        yearInput.parentElement.classList.remove("error_message");
+      yearInp.classList.remove("error");
+      yearInp.parentElement.classList.remove("error_message");
     }
-    if (!cvcInput.value) {
-        cvcInput.classList.add ("error");
-        cvcInput.parentElement.classList.add("error_message");
+    if (!cvcInp.value) {
+      cvcInp.classList.add("error")
+      cvcInp.parentElement.classList.add("error_message");
     } else {
-        cvcInput.classList.remove ("error");
-        cvcInput.parentElement.classList.remove("error_message");
+      cvcInp.classList.remove("error");
+      cvcInp.parentElement.classList.remove("error_message");
     }
-    if(nameInput.value&&numberInput.value&&monthInput.value&&yearInput.value&&cvcInput.value){
-        completed.classList.remove("hidden");
-        form.classList.add("hidden");
+    if (
+      nameInp.value &&
+      numberInp.value &&
+      monthInp.value &&
+      yearInp.value &&
+      cvcInp.value &&
+      numberInp.value.length == 16
+    ) {
+      completed.classList.remove("hidden");
+      form.classList.add("hidden");
     }
+  
+}
+function format(s) {
+  return s.toString().replace(/\d{4}(?=.)/g, "$& ");
 }
 
-
-// EVENTOS
-numberInput.addEventListener("keyup",setCardNumber);
-nameInput.addEventListener("keyup",setCardName);
-monthInput.addEventListener("keyup",setCardMonth);
-yearInput.addEventListener("keyup",setCardYear);
-cvcInput.addEventListener("keyup",setCardCvc);
-SubmitButton.addEventListener("click",handleSubmit);
-
-
+numberInp.addEventListener("keyup", setCardNumber);
+nameInp.addEventListener("keyup", setCardName);
+monthInp.addEventListener("keyup", setCardMonth);
+yearInp.addEventListener("keyup", setCardYear);
+cvcInp.addEventListener("keyup", setCardCvc);
+submitBtn.addEventListener("click", handleSubmit);
