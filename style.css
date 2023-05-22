@@ -183,7 +183,7 @@ input:focus{
    cursor: pointer;
 }
 
-.thanks{
+.thank{
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -191,15 +191,15 @@ input:focus{
     position: relative;
     gap: 2rem;
 }
-.thanks__title{
+.thank__title{
     text-transform: uppercase;
     letter-spacing: 3px; 
 }
-.thanks__paragraph{
+.thank__paragraph{
     font-size: 18px;
     color: var(--Dark-grayish-violet);
 }
-.thanks__button{
+.thank__button{
     width: 100%;
     color: var(--White);
     background-color: var(--Very-dark-violet);
