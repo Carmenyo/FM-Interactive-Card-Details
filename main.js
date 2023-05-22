@@ -8,7 +8,7 @@ const monthInp = document.getElementById("card_month");
 const yearInp = document.getElementById("card_year");
 const cardCvc = document.getElementById("cvc");
 const cvcInp = document.getElementById("card_cvc");
-const submitBtn = document.getElementById("submit__btn");
+const submitBtn = document.getElementById("submit__button");
 const completed = document.querySelector(".thank");
 const form = document.querySelector("form");
 

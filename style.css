@@ -110,7 +110,7 @@ body{
     justify-content: center;
     width: 100%;
 }
-.section__right--form{
+.form{
    display: grid; 
    width: 25rem;
    height: 25rem;
@@ -156,23 +156,23 @@ input:focus{
 }
 .card__info{
     display:flex;
-    grid-column: 2 span;
+    grid-column: 2 ;
     gap: 1rem;
 }
 .card__date{
     display: flex;
     flex-direction: column;
-    grid-column: 1 span;
+    grid-column: 1 ;
 }
 .card__twoinput{
     display: flex;
     gap: 1rem;
 }
 #card__month{
-    width: 50%;
+    width: 5rem;
 }
 #card__year{
-    width: 50%;
+    width: 5rem;
 }
 #submit__button{
    grid-column:  2 span; 
